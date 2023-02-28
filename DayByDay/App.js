@@ -14,7 +14,7 @@ export default class App extends Component {
                     style={{height:deviceHeight, width:deviceWidth, alignItems:'center'}}
                 >
                 <View style={styles.messagePageTopContainer}>
-                    <Text style={styles.messagePageTitle}>Message Page</Text>
+                    <Text style={styles.messagePageTitle}>Day By Day</Text>
                 </View>
                 <View style={styles.messagePageTextInputCon}>
                     <TextInput style={styles.messagePageTextInput}
