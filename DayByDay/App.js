@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
         fontSize:30,
         fontWeight:'bolder',
         color:'white',
+        fontFamily: 'comic sans',
     },
     messagePageTextInput: {
       marginBottom:0,
