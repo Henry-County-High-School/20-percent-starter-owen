@@ -19,7 +19,7 @@ export default class App extends Component {
                 <View style={styles.messagePageTextInputCon}>
                     <TextInput style={styles.messagePageTextInput}
                         multiline='true'
-                        placeholder='Click here to type your message!'
+                        placeholder='Click here to create a new habit!'
                     />
                 </View>
                 <TouchableOpacity
