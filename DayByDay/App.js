@@ -29,6 +29,8 @@ export default class App extends Component {
                         style={{height:65, width:65, marginTop:20,}}
                     />
                 </TouchableOpacity>
+                <View style={styles.habitsDisplay}>
+                </View>
                 </View>
             </View>
         );
@@ -89,5 +91,14 @@ const styles = StyleSheet.create({
         height: deviceHeight,
         width: deviceWidth,
         alignItems: 'center',
+    },
+    habitsDisplay: {
+        backgroundColor: 'dimgrey',
+        height: deviceHeight/2.9,
+        width: deviceWidth/1.1,
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+        borderRadius:50,
+        marginTop:10,
     },
 });
