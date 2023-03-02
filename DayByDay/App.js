@@ -9,10 +9,7 @@ export default class App extends Component {
     render() {
         return (
             <View style={styles.messagePageContainer}>
-                <ImageBackground
-                    source={{uri: 'https://codehs.com/uploads/85a7b3b2f023eae7717b2cac12b47426'}}
-                    style={{height:deviceHeight, width:deviceWidth, alignItems:'center'}}
-                >
+                <View style={styles.bgBox}>
                 <View style={styles.messagePageTopContainer}>
                     <Text style={styles.messagePageTitle}>Day By Day</Text>
                 </View>
@@ -24,7 +21,7 @@ export default class App extends Component {
                 </View>
                 <TouchableOpacity
                     onPress={() => {
-                        alert('Message Pinned');
+                        alert('Habit Created');
                     }}
                 >
                     <Image
@@ -32,7 +29,7 @@ export default class App extends Component {
                         style={{height:65, width:65, marginTop:20,}}
                     />
                 </TouchableOpacity>
-                </ImageBackground>
+                </View>
             </View>
         );
     }
@@ -86,5 +83,11 @@ const styles = StyleSheet.create({
       width:deviceWidth/1.15,
       alignItems:'center',
       justifyContent:'center',
+    },
+    bgBox: {
+        backgroundColor: 'cornsilk',
+        height: deviceHeight,
+        width: deviceWidth,
+        alignItems: 'center',
     },
 });
