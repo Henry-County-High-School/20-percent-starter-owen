@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import dayjs from 'dayjs';
 import { AppRegistry, Text, View, StyleSheet, Dimensions, Image, TouchableOpacity, TextInput, ImageBackground } from 'react-native';
 import Constants from 'expo-constants';
 
@@ -13,6 +14,7 @@ export default class App extends Component {
                 <View style={styles.messagePageTopContainer}>
                     <Text style={styles.messagePageTitle}>Day By Day</Text>
                 </View>
+                <Text style="{styles.time}">{dayjs().format("hh:mm")}</Text>
                 <View style={styles.messagePageTextInputCon}>
                     <TextInput style={styles.messagePageTextInput}
                         multiline='true'
@@ -100,5 +102,9 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         borderRadius:50,
         marginTop:10,
+    },
+    time: {
+        fontFamily: 'Arial',
+        fontSize:30,
     },
 });
