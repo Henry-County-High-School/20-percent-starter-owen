@@ -14,7 +14,8 @@ export default class App extends Component {
                 <View style={styles.messagePageTopContainer}>
                     <Text style={styles.messagePageTitle}>Day By Day</Text>
                 </View>
-                <Text style="{styles.time}">{dayjs().format("hh:mm")}</Text>
+                <Text style={styles.time}>{dayjs().format("hh:mm")}</Text>
+                <Text style={styles.date}>{dayjs().format("dddd, DD MMMM")}</Text>
                 <View style={styles.messagePageTextInputCon}>
                     <TextInput style={styles.messagePageTextInput}
                         multiline='true'
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
       marginBottom:0,
       borderRadius:20,
       backgroundColor:'dimgrey',
-      marginTop:200,
+      marginTop:100,
       height:deviceHeight/10,
       width:deviceWidth/1.15,
       alignItems:'center',
@@ -104,7 +105,14 @@ const styles = StyleSheet.create({
         marginTop:10,
     },
     time: {
-        fontFamily: 'Arial',
-        fontSize:30,
+        fontFamily: 'Calibri',
+        fontSize:80,
+        marginTop:20,
+        color: 'lightsteelblue',
+    },
+    date: {
+        fontFamily: 'impact',
+        fontSize:20,
+        color: 'lightsteelblue',
     },
 });
