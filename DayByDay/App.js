@@ -1,12 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component  }  from 'react';
+import  { useState }  from 'react';
 import dayjs from 'dayjs';
-import { AppRegistry, Text, View, StyleSheet, Dimensions, Image, TouchableOpacity, TextInput, ImageBackground } from 'react-native';
+import { AppRegistry, Text, View, StyleSheet, Dimensions, Image, TouchableOpacity, TextInput, ImageBackground , ScrollView, TouchableHighlight, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import Constants from 'expo-constants';
 
 let deviceHeight = Dimensions.get('window').height;
 let deviceWidth = Dimensions.get('window').width;
 
+
 export default class App extends Component {
+state = {
+  habitInput:'',
+}
+
+handleUserInput
+
     render() {
         return (
             <View style={styles.messagePageContainer}>
@@ -15,16 +23,18 @@ export default class App extends Component {
                     <Text style={styles.messagePageTitle}>Day By Day</Text>
                 </View>
                 <Text style={styles.time}>{dayjs().format("hh:mm")}</Text>
-                <Text style={styles.date}>{dayjs().format("dddd, DD MMMM")}</Text>
+                <Text style={styles.date}>{dayjs().format("dddd, MMMM DD")}</Text>
                 <View style={styles.messagePageTextInputCon}>
                     <TextInput style={styles.messagePageTextInput}
                         multiline='true'
-                        placeholder='Click here to create a new habit!'
+                        placeholder='Click here to create a new reminder!'
+                        onChange={e => this.setState({ habitInput: e.target.value })}
                     />
                 </View>
                 <TouchableOpacity
                     onPress={() => {
-                        alert('Habit Created');
+                        Keyboard.dismiss
+                        alert('Habit Created: ' + this.state.habitInput);
                     }}
                 >
                     <Image
@@ -32,9 +42,13 @@ export default class App extends Component {
                         style={{height:65, width:65, marginTop:20,}}
                     />
                 </TouchableOpacity>
-                <View style={styles.habitsDisplay}>
+                <View style={styles.habitsDisplay}
+                  scrollView='true'
+                  multiline='true'
+                  value={this.state.habitInput}
+                >
                 </View>
-                </View>
+                </View> 
             </View>
         );
     }
@@ -46,7 +60,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'flex-start',
         paddingTop: Constants.statusBarHeight,
-        backgroundColor: 'grey',
+        backgroundColor: 'cornsilk',
     },
     messagePageTopContainer: { 
         flexDirection:'row',
@@ -56,15 +70,8 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
     },
-    paragraph: {
-        margin: 24,
-        fontSize: 18,
-        fontWeight: 'bold',
-        textAlign: 'center',
-        color: '#34495e',
-    },
     messagePageTitle: {
-        fontSize:30,
+        fontSize:35,
         fontWeight:'bolder',
         color:'white',
         fontFamily: 'American Typewriter',
@@ -83,14 +90,14 @@ const styles = StyleSheet.create({
       marginBottom:0,
       borderRadius:20,
       backgroundColor:'dimgrey',
-      marginTop:100,
+      marginTop:60,
       height:deviceHeight/10,
       width:deviceWidth/1.15,
       alignItems:'center',
       justifyContent:'center',
     },
     bgBox: {
-        backgroundColor: 'cornsilk',
+        backgroundColor: '',
         height: deviceHeight,
         width: deviceWidth,
         alignItems: 'center',
@@ -99,13 +106,13 @@ const styles = StyleSheet.create({
         backgroundColor: 'dimgrey',
         height: deviceHeight/2.9,
         width: deviceWidth/1.1,
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
+        alignItems: 'center',
+        justifyContent: 'center',
         borderRadius:50,
-        marginTop:10,
+        margin:10,
     },
     time: {
-        fontFamily: 'Calibri',
+        fontFamily: 'Courier',
         fontSize:80,
         marginTop:20,
         color: 'lightsteelblue',
